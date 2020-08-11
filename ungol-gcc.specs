@@ -15,5 +15,8 @@ libgcc.a%s %:if-exists(libgcc_eh.a%s)
 *startfile:
 /lib/x86_64-ungol/crt.o
 
+*endfile:
+/lib/x86_64-ungol/crt.o
+
 *link:
 --dynamic-linker /lib/x86_64-ungol/ld-linux.so -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic}
