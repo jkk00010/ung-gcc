@@ -1,16 +1,13 @@
 %rename cpp_options old_cpp_options
 
 *cpp_options:
--nostdinc -isystem /lib/include -isystem include%s %(old_cpp_options)
+-nostdinc -isystem /lib/include %s %(old_cpp_options)
 
 *cc1:
-%(cc1_cpu) -g -nostdinc -isystem /lib/include -isystem include%s
-
-*link_libgcc:
--L/lib/x86_64-ungol -L .%s
+%(cc1_cpu) -nostdinc -isystem /lib/include -isystem include%s
 
 *libgcc:
-libgcc.a%s %:if-exists(libgcc_eh.a%s)
+-lgcc
 
 *startfile:
 /lib/x86_64-ungol/crt.o
@@ -19,4 +16,4 @@ libgcc.a%s %:if-exists(libgcc_eh.a%s)
 /lib/x86_64-ungol/crt.o
 
 *link:
---dynamic-linker /lib/x86_64-ungol/ld-linux.so -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic}
+--dynamic-linker /lib/x86_64-ungol/ld-linux.so -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic} -L/lib/x86_64-ungol
