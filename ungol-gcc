@@ -1,0 +1,2 @@
+#!/bin/sh
+exec gcc "$@" -specs /lib/x86_64-ungol/ungol-gcc.specs
