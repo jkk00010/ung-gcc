@@ -4,7 +4,7 @@
 -nostdinc -isystem /lib/include %s %(old_cpp_options)
 
 *cc1:
-%(cc1_cpu) -nostdinc -isystem /lib/include -isystem include%s
+%(cc1_cpu) -fno-stack-protector -nostdinc -isystem /lib/include -isystem include%s
 
 *libgcc:
 -lgcc
