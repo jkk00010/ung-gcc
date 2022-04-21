@@ -1,0 +1,2 @@
+#!/bin/sh
+exec gcc -std=c11-g -static "$@" -specs /lib/x86_64-ungol/ungol-gcc.specs
