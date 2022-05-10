@@ -10,10 +10,10 @@
 -lgcc
 
 *startfile:
-/lib/x86_64-ungol/crt.o
+/lib/x86_64-ungol/crt_start.o
 
 *endfile:
-/lib/x86_64-ungol/crt.o
+/lib/x86_64-ungol/crt_end.o
 
 *link:
 --dynamic-linker /lib/x86_64-ungol/ld-linux.so -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic} -L/lib/x86_64-ungol
